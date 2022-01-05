@@ -1,0 +1,29 @@
+spring:
+  datasource-primary:
+    url: jdbc:mysql://172.20.101.27:3306/test?useUnicode=true&characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: Java12345!
+  datasource-secondary:
+    url: jdbc:mysql://172.20.111.188:3306/test?useUnicode=true&characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: Java12345!
+
+elasticjob:
+  tracing:
+    type: RDB
+  regCenter:
+    serverLists: zoo-single:2181
+    namespace: elasticjob-lite-springboot
+  jobs:
+    simpleJob:
+      elasticJobClass: com.elasticjob.job.DemoSimpleJob
+      cron: 0/5 * * * * ?
+      shardingTotalCount: 3
+      shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
+    dataflowJob:
+      elasticJobClass: com.elasticjob.job.DemoDataflowJob
+      cron: 0/5 * * * * ?
+      shardingTotalCount: 3
+      shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou

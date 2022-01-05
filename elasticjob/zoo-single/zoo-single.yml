@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  zoo-single:
+    image: zookeeper:3.6
+    restart: always
+    volumes:
+      - zoo-storage:/data
+    ports:
+      - 2181:2181
+    networks:
+      - zoo_byfn
+  # ZooKeeper UI and editor/browser
+  zoonavigator:
+    image: elkozmon/zoonavigator:1.1.1
+    restart: unless-stopped
+    ports:
+      - "8004:8000"
+    environment:
+      HTTP_PORT: 8000
+    depends_on:
+      - zoo-single
+    networks:
+      - zoo_byfn
+networks:
+  zoo_byfn:
+    name: zoo_byfn
+    driver: bridge
+volumes:
+  zoo-storage:

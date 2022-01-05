@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  elasticjob-ui:
+    image: apache/shardingsphere-elasticjob-lite-ui:3.0.0
+    restart: always
+    ports:
+      - 8088:8088
+    networks:
+      - zoo_byfn
+networks:
+  zoo_byfn:
+    external:
+      name: zoo_byfn

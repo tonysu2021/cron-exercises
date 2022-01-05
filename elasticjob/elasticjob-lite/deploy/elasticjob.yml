@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  elasticjob:
+    image: ${IMAGE_NAME}
+    extra_hosts:
+      zoo-single: 172.20.101.27
+      mysql-elasticjob: 172.20.101.27
+      mysql-secondary: 172.20.111.188
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+    environment:
+      - PROFILE_ACTIVE=dev
+    ports:
+      - "8796:8796"
+    networks:
+      - elasticjobnet
+
+networks:
+  elasticjobnet:
+    external: true
+    name: elasticjobnet

@@ -1,0 +1,8 @@
+/.metadata/
+.sonarlint/
+*.classpath
+*.project
+elasticjob/elasticjob-lite/.settings/
+elasticjob/elasticjob-lite/target/
+spring-batch/.settings/
+spring-batch/target/

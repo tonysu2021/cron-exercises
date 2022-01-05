@@ -1,0 +1,14 @@
+spring:
+  main:    allow-bean-definition-overriding: true
+  datasource-primary:
+    url: jdbc:mysql://172.20.101.27:3306/test?useUnicode=true&characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: Java12345!
+  datasource-secondary:
+    url: jdbc:mysql://172.20.111.188:3306/test?useUnicode=true&characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: Java12345!
+file:
+  input: coffee-list.csv
