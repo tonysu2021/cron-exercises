@@ -6,7 +6,8 @@
   
   ```sh
   # v2.9.1
-  ./docker-compose/start-docker-service.sh
+  cd docker-compose
+  sh start-docker-service.sh
   ```
 
 * Kubernetes環境
@@ -18,7 +19,8 @@
   kubectl apply -f ./kubernetes/cloud-dataflow-namespace.yaml
 
   # v2.9.1
-  ./kubernetes/start-k8s-service.sh
+  cd kubernetes
+  sh start-k8s-service.sh
   ```
 
 ## 建立Spring Cloud Task/Spring Cloud Stream
