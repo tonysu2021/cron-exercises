@@ -25,13 +25,6 @@ public class Coffee {
 	@Column(name = "characteristics")
     private String characteristics;
 	
-	public Coffee(String brand, String origin, String characteristics) {
-		super();
-		this.brand = brand;
-		this.origin = origin;
-		this.characteristics = characteristics;
-	}
-
 	public int getId() {
 		return id;
 	}

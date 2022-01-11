@@ -38,3 +38,5 @@ see <https://dataflow.spring.io/docs/batch-developer-guides/getting-started/task
 [Spring Cloud Task App Starters](https://spring.io/projects/spring-cloud-task-app-starters)
 
 [Spring Cloud Stream App Starters](https://spring.io/projects/spring-cloud-stream-app-starters)
+
+[An Intro to Spring Cloud Task](https://www.baeldung.com/spring-cloud-task)

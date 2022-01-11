@@ -1,0 +1,5 @@
+CREATE TABLE book  (
+    book_id BIGINT NOT NULL NOT NULL AUTO_INCREMENT,
+    name VARCHAR(20),
+    PRIMARY KEY (book_id)
+) ENGINE=InnoDB;
