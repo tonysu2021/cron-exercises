@@ -62,9 +62,9 @@ public class BatchJob {
 				.dataSource(dataSource).build();
 	}
 
-	@Bean(name = "coffeeStep1")
-	public Step step1(@Qualifier("coffeeWriter") JdbcBatchItemWriter<Coffee> writer) {
-		return stepBuilderFactory.get("step1")
+	@Bean(name = "coffeeStep")
+	public Step writeCoffee(@Qualifier("coffeeWriter") JdbcBatchItemWriter<Coffee> writer) {
+		return stepBuilderFactory.get("writeCoffee")
 				.<Coffee, Coffee>chunk(10)
 				.reader(coffeeReader())
 				.processor(coffeeProcessor())
@@ -72,11 +72,11 @@ public class BatchJob {
 	}
 
 	@Bean(name = "coffeeJob")
-	public Job importUserJob(JobCompletionNotificationListener listener, @Qualifier("coffeeStep1") Step step1) {
-		return jobBuilderFactory.get("importUserJob")
+	public Job importUserJob(JobCompletionNotificationListener listener, @Qualifier("coffeeStep") Step step) {
+		return jobBuilderFactory.get("coffeeJob")
 				.incrementer(new RunIdIncrementer())
 				.listener(listener)
-				.flow(step1)
+				.flow(step)
 				.end().build();
 	}
 }

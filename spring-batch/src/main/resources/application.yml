@@ -11,4 +11,4 @@ spring:
     username: root
     password: Java12345!
 file:
-  input: coffee-list.csv
+  input: files/coffee-list.csv

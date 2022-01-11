@@ -54,7 +54,7 @@ public class BatchScheduler {
 	@Bean(name = "bookReader")
 	public FlatFileItemReader<Book> bookReader() {
 		return new FlatFileItemReaderBuilder<Book>().name("bookItemReader")
-				.resource(new ClassPathResource("books.csv"))
+				.resource(new ClassPathResource("files/books.csv"))
 				.delimited().names(new String[] { "id", "name" })
 				.fieldSetMapper(new BeanWrapperFieldSetMapper<Book>() {
 					{
@@ -79,8 +79,8 @@ public class BatchScheduler {
 	}
 
 	@Bean(name = "readbookStep")
-	protected Step readBooks() {
-		return stepBuilderFactory.get("readBooks")
+	protected Step readBook() {
+		return stepBuilderFactory.get("readBook")
 				.<Book, Book>chunk(2)
 				.reader(bookReader())
 				.writer(bookWriter())
@@ -89,8 +89,8 @@ public class BatchScheduler {
 
 	@Bean(name = "bookJob")
 	public Job bookJob() {
-		return jobBuilderFactory.get("job")
-				.start(readBooks())
+		return jobBuilderFactory.get("bookJob")
+				.start(readBook())
 				.build();
 	}
 
