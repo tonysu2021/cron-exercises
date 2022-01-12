@@ -6,3 +6,5 @@ elasticjob/elasticjob-lite/.settings/
 elasticjob/elasticjob-lite/target/
 spring-batch/.settings/
 spring-batch/target/
+spring-cloud-stream-starters/rabbit-jdbc-example/.settings/
+spring-cloud-stream-starters/rabbit-jdbc-example/target/

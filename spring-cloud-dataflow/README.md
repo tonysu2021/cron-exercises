@@ -23,9 +23,19 @@
   sh start-k8s-service.sh
   ```
 
-## 建立Spring Cloud Task/Spring Cloud Stream
+## 建立Spring Cloud Task
 
-see <https://dataflow.spring.io/docs/batch-developer-guides/getting-started/task/>
+* 方法一
+
+  see <https://dataflow.spring.io/docs/batch-developer-guides/getting-started/task/>
+
+* 方法二
+
+  直接使用Spring Batch部屬。
+
+## Spring Cloud Stream
+
+官方所有Stream App Starters都在這個[repositories](https://github.com/orgs/spring-cloud-stream-app-starters/repositories)
 
 ## Reference
 
@@ -40,3 +50,5 @@ see <https://dataflow.spring.io/docs/batch-developer-guides/getting-started/task
 [Spring Cloud Stream App Starters](https://spring.io/projects/spring-cloud-stream-app-starters)
 
 [An Intro to Spring Cloud Task](https://www.baeldung.com/spring-cloud-task)
+
+[使用Spring Cloud App Starter](https://www.1ju.org/spring-cloud/spring-cloud-app-starter)

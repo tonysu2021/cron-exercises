@@ -17,6 +17,7 @@ import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -63,6 +64,7 @@ public class BatchJob {
 	}
 
 	@Bean(name = "coffeeStep")
+	@ConditionalOnBean(name="coffeeWriter")
 	public Step writeCoffee(@Qualifier("coffeeWriter") JdbcBatchItemWriter<Coffee> writer) {
 		return stepBuilderFactory.get("writeCoffee")
 				.<Coffee, Coffee>chunk(10)
@@ -72,6 +74,7 @@ public class BatchJob {
 	}
 
 	@Bean(name = "coffeeJob")
+	@ConditionalOnBean(name="coffeeStep")
 	public Job importUserJob(JobCompletionNotificationListener listener, @Qualifier("coffeeStep") Step step) {
 		return jobBuilderFactory.get("coffeeJob")
 				.incrementer(new RunIdIncrementer())
