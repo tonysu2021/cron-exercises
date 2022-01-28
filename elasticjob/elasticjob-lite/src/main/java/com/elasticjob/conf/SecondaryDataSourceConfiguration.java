@@ -51,7 +51,7 @@ public class SecondaryDataSourceConfiguration {
         
         return secondaryEntityManagerFactoryBuilder
                 .dataSource(secondaryDataSource)
-                .packages("com.elasticjob.model.secondary")
+                .packages("com.elasticjob.entity.secondary")
                 .persistenceUnit("secondaryDataSource")
                 .properties(secondaryJpaProperties)
                 .build();

@@ -55,7 +55,7 @@ public class PrimaryDataSourceConfiguration {
 
         return primaryEntityManagerFactoryBuilder
                 .dataSource(primaryDataSource)
-                .packages("com.elasticjob.model.primary")
+                .packages("com.elasticjob.entity.primary")
                 .persistenceUnit("primaryDataSource")
                 .properties(primaryJpaProperties)
                 .build();
